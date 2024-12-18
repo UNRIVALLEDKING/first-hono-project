@@ -12,16 +12,16 @@
 │   │   └── 📄 logger.js           # Logging middleware
 │   │
 │   ├── 📁 models/
-│   │   ├── 📄 user.js             # User database schema
-│   │   └── 📄 todo.js             # Todo database schema
+│   │   ├── 📄 user.model.js       # User database schema
+│   │   └── .....
 │   │
 │   ├── 📁 routes/
 │   │   ├── 📄 auth.js             # Authentication routes
-│   │   └── 📄 todos.js            # Todo CRUD routes
+│   │   └── .....
 │   │
 │   ├── 📁 services/
 │   │   ├── 📄 auth-service.js     # Authentication logic
-│   │   └── 📄 todo-service.js     # Todo business logic
+│   │   └── .....
 │   │
 │   ├── 📁 utils/
 │   │   ├── 📄 validate.js         # Validation helpers
