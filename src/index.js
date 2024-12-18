@@ -9,6 +9,7 @@ import authRoutes from './routes/auth.routes';
 import { logger } from 'hono/logger';
 import { apiReference } from '@scalar/hono-api-reference';
 import todoRoutes from './routes/todo.routes';
+import serveEmojiFavicon from './utils/serveEmojiFavicon';
 const env = loadEnv();
 console.log(env);
 
@@ -27,7 +28,7 @@ const app = new OpenAPIHono();
 //       pino: pino(pretty()),
 //     })
 //   );
-
+app.use(serveEmojiFavicon('😎'));
 app.use(logger());
 app.onError((err, c) => {
   console.error(`${err}`);
