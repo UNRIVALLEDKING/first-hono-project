@@ -11,9 +11,10 @@ const todoRoutes = new OpenAPIHono();
 const db = getDatabase();
 
 // get todo  route
-
 const getTodoRoute = createRoute({
-  description: 'Get all Todos',
+  summary: 'All Todos',
+  tags: ['Todo'],
+  description: 'Get all Todos from the database',
   method: 'get',
   path: '/all-todos',
   request: {},
@@ -45,6 +46,7 @@ const createTodoResponseSchema = z.object({
 // create todo route
 const createTodoRoute = createRoute({
   description: 'Add Tasks',
+  tags: ['Todo'],
   method: 'post',
   path: '/add',
   request: {
@@ -77,6 +79,7 @@ todoRoutes.openapi(createTodoRoute, async (context) => {
         description,
       })
       .returning();
+    console.log('error');
     return context.json({
       message: 'task created successfully',
       data: newTodo,

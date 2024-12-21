@@ -15,6 +15,7 @@ const methodNotAllowedHandler = (c, allowedMethods) => {
 // Login Route
 const loginRoute = createRoute({
   method: 'post',
+  tags: ['Auth'],
   path: '/login',
   request: {
     body: {
@@ -95,6 +96,7 @@ authRoutes.openapi(loginRoute, async (c) => {
 // Register Route
 const registerRoute = createRoute({
   method: 'post',
+  tags: ['Auth'],
   path: '/register',
   request: {
     body: {

@@ -15,21 +15,21 @@ console.log(env);
 
 const app = new OpenAPIHono();
 
-// app
-//   .use(
-//     requestId({
-//       options: {
-//         requestId: () => crypto.randomUUID(),
-//       },
-//     })
-//   )
-//   .use(
-//     pinoLogger({
-//       pino: pino(pretty()),
-//     })
-//   );
+app
+  .use(
+    requestId({
+      options: {
+        requestId: () => crypto.randomUUID(),
+      },
+    })
+  )
+  .use(
+    pinoLogger({
+      pino: pino(pretty()),
+    })
+  );
 app.use(serveEmojiFavicon('😎'));
-app.use(logger());
+// app.use(logger());
 app.onError((err, c) => {
   console.error(`${err}`);
   return c.json({ message: 'Something went wrong' }, 500);
@@ -56,10 +56,13 @@ app.get(
   '/docs',
   apiReference({
     theme: 'saturn',
+
+    pageTitle: 'Todo API Docs',
     spec: { url: '/doc' },
   })
 );
 
+// export default app;
 export default {
   port: env.PORT,
   fetch: app.fetch,
